@@ -20,7 +20,7 @@
 
 .result-selection {
   font-weight: bold;
-  color: rgba(231, 54, 54, 0.808);
+  color: white;
 }
 
 /* Multiple select */
@@ -53,15 +53,17 @@
 }
 
 /* Links inside the dropdown */
-.dropdown-content div {
+.dropdown-content button {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  width:520px;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content div:hover {background-color: #f1f1f1}
+.dropdown-content button
+:hover {background-color: #f1f1f1}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
@@ -71,4 +73,10 @@
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
   background-color: rgba(231, 54, 54, 0.808);
+}
+
+.select-output {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
 }

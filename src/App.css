@@ -8,11 +8,6 @@
   margin: 5px;
 }
 
-.result-selection {
-  font-weight: bold;
-  color: rgba(231, 54, 54, 0.808);
-}
-
 
   /* The container must be positioned relative: */
 .custom-select {

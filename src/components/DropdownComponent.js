@@ -14,7 +14,6 @@ const DropdownComponent = (props) => {
 
   const handleMultiSelectChange = React.useCallback(
     (e) => {
-      console.log(e.target.value);
       const index = listSelect.findIndex((item) => item.id == e.target.value);
       console.log("Hello2");
       if (index === -1) {
@@ -53,30 +52,32 @@ const DropdownComponent = (props) => {
   ) : (
     <div>
       <div className="dropdown">
-        <button className="dropbtn"></button>
+        <button className="dropbtn">
+          <div>
+            {listSelect.map((choices) => {
+              return (
+                <span key={choices.id} className="result-selection">
+                  {choices?.name},
+                </span>
+              );
+            })}
+          </div>
+        </button>
         <div className="dropdown-content" /* onChange={} */>
           {data.map((options) => {
             return (
-              <div
+              <button
+                /* aria-hidden="true"
+                className="select-output" */
                 key={options.id}
                 value={options.id}
-                onSelect={handleMultiSelectChange}
+                onClick={handleMultiSelectChange}
               >
                 {options.name}
-              </div>
+              </button>
             );
           })}
         </div>
-      </div>
-      Ket qua:
-      <div>
-        {listSelect.map((choices) => {
-          return (
-            <span key={choices.id} className="result-selection">
-              "{choices?.name}",
-            </span>
-          );
-        })}
       </div>
     </div>
   );
