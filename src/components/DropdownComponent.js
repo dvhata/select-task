@@ -2,9 +2,7 @@ import React from "react";
 import "./DropdownComponent.css";
 
 const DropdownComponent = (props) => {
-  const { isMulti, data, onSelect } = props;
-  /* const [option, setOption] = React.useState({}); */
-
+  const {isMulti, data} = props;
   const [singleChoice, setSingleChoice] = React.useState(data[0]);
   const [listSelect, setListSelect] = React.useState([]);
 
@@ -14,6 +12,8 @@ const DropdownComponent = (props) => {
 
   const handleMultiSelectChange = React.useCallback(
     (e) => {
+      e.target.style.textDecoration =
+        e.target.style.textDecoration === "line-through" ? "" : "line-through";
       const index = listSelect.findIndex((item) => item.id == e.target.value);
       console.log("Hello2");
       if (index === -1) {
@@ -37,7 +37,7 @@ const DropdownComponent = (props) => {
                 key={options.id}
                 type="radio"
                 value={options.id}
-                onChange={onSelect}
+                onChange={handleSingleChoice}
               >
                 {options.name}
               </option>
@@ -45,9 +45,7 @@ const DropdownComponent = (props) => {
           })}
         </select>
       </div>
-      <div className="result-selection">
-        Your selection: "{singleChoice.name}"
-      </div>
+      <div style={{fontWeight:"bold",color:"rgba(231, 54, 54, 0.808)"}}>Your selection: "{singleChoice.name}"</div>
     </div>
   ) : (
     <div>
@@ -63,12 +61,10 @@ const DropdownComponent = (props) => {
             })}
           </div>
         </button>
-        <div className="dropdown-content" /* onChange={} */>
+        <div className="dropdown-content">
           {data.map((options) => {
             return (
               <button
-                /* aria-hidden="true"
-                className="select-output" */
                 key={options.id}
                 value={options.id}
                 onClick={handleMultiSelectChange}
