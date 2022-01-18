@@ -1,6 +1,8 @@
 import React from "react";
 import DropdownComponent from "./components/DropdownComponent.js";
+import TreeData from "./components/TreeData.js";
 import "./App.css";
+import 'antd/dist/antd.css';
 
 const list_options = [
   {
@@ -80,6 +82,7 @@ function App() {
           </div>
         )}
       </div>
+      <TreeData/>
     </div>
   );
 }
